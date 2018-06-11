@@ -1,0 +1,7 @@
+module.exports = {
+  FACEBOOK_APPID: process.env.FACEBOOK_APPID,
+  FACEBOOK_SECRET: process.env.FACEBOOK_SECRET,
+  AMAZON_AWS_ID: process.env.AMAZON_AWS_ID,
+  AMAZON_AWS_SECRET: process.env.AMAZON_AWS_SECRET,
+  AMAZON_TAG_ID: process.env.AMAZON_TAG_ID
+};

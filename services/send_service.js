@@ -1,11 +1,12 @@
 const request = require('request-promise');
+const keys = require('../config/keys')
 
 // App Secret can be retrieved from the App Dashboard
-const APP_SECRET = 'b347e5319237204bd1f85bc08742de95';
+const APP_SECRET = keys.FACEBOOK_SECRET;
 
 // Arbitrary value used to validate a webhook
 // Generate a page access token for your page from the App Dashboard
-const PAGE_ACCESS_TOKEN = 'EAAXRpkJwdUEBANWvP7TXdZBLTSHtHuUtBE2fFf0eXe1eU5oMq65zP8jZCg6HEB73PptZAyKQOZCZC7RZCcSFmMHKihODr6IBzZBYLX3mWHEiyRlZA6F3VaFEgcp86hmN8r6japUrdUrM05gi6qEHUx09oBSoG4RQZCE4crFKMEPmvRgZDZD';
+const PAGE_ACCESS_TOKEN = keys.PAGE_ACCESS_TOKEN;
 
 function callSendAPI(messageData) {
       request({

@@ -1,5 +1,5 @@
 // Creates the endpoint for our webhook
-
+const keys = require('../config/keys');
 const Received = require('../services/received_service');
 
 module.exports = (app) => {
@@ -49,7 +49,7 @@ module.exports = (app) => {
   app.get('/webhook', (req, res) => {
 
     // Your verify token. Should be a random string.
-    let VERIFY_TOKEN = "darrenslist"
+    let VERIFY_TOKEN = keys.VERIFY_TOKEN;
 
     // Parse the query params
     let mode = req.query['hub.mode'];

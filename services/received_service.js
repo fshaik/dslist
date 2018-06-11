@@ -2,10 +2,11 @@ const GoogleVision = require('./google_vision_service');
 const AWS = require('aws-sdk');
 const request = require('request-promise');
 const send = require('./send_service');
+const keys = require('../config/keys')
 
 const saveImageMessage = async (url, cb, recipientId) => {
 
-  AWS.config.update({ accessKeyId: 'AKIAJRVWFDGVUKEXQKRQ', secretAccessKey: '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' });
+  AWS.config.update({ accessKeyId: keys.AMAZON_AWS_ID , secretAccessKey: keys.AMAZON_AWS_SECRET });
 
   var filename = Math.random().toString(36).substring(7);
   var s3 = new AWS.S3();
@@ -15,7 +16,7 @@ const saveImageMessage = async (url, cb, recipientId) => {
   });
 
   let params = {
-    Bucket: 'd-list',
+    Bucket: keys.AMAZON_BUCKET,
     Key: filename,
     ACL: 'public-read',
     Body: imageBuff // buffer
@@ -26,7 +27,7 @@ const saveImageMessage = async (url, cb, recipientId) => {
         console.log('ERROR IN saveImageMessage');
         console.log(err);
       } else {
-        const temp = cb('https://s3.amazonaws.com/' + 'd-list' + '/' + filename, recipientId);
+        const temp = cb('https://s3.amazonaws.com/' + keys.AMAZON_BUCKET + '/' + filename, recipientId);
       }
     });
 
